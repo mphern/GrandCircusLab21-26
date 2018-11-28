@@ -91,8 +91,23 @@
                             <option value="Wyoming">Wyoming</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </fieldset>
+                <fieldset>
+                    <legend>Security</legend>
+                    <div class="form-group required">
+                        <label class="control-label register-form-text">Security Question: </label><br />
+                    </div>
+                    <select name="question" required>
+                        <option value="">Pick a security question</option>
+                        <option value="question 1">What was your first pet's name?</option>
+                        <option value="question 2">What was the name of your elementary school?</option>
+                        <option value="question 3">What was the model of your first car?</option>
+                        <option value="question 4">What is your mother's maiden name?</option>
+                    </select>
+                    <input type="text" class="form-control" name="answer" placeholder="Enter Answer" required>
+                </fieldset>
+                <br />
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             </form>
         </div>
         <div class="col">
