@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Fill out below form to register dude!</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5 pr-0">
+            <form action="/Home/Welcome" method="post">
+                <div class="form-group required">
+                    <label class="control-label register-form-text">Email Address: </label>
+                    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                    <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group required">
+                    <label class="control-label register-form-text">First Name: </label>
+                    <input type="text" class="form-control" name="firstName" placeholder="Enter First Name" required>
+                </div>
+                <div class="form-group required">
+                    <label class="control-label register-form-text">Last Name: </label>
+                    <input type="text" class="form-control" name="lastName" placeholder="Enter Last Name" required>
+                </div>
+                <div class="form-group">
+                    <label class="register-form-text">Phone Number: </label>
+                    <input type="text" class="form-control" name="phoneNumber" placeholder="Enter Phone Number">
+                </div>
+                <div class="form-group required">
+                    <label class="control-label register-form-text">Password: </label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </form>
+        </div>
+        <div class="col">
+            <img id="fist-bump" class="img fluid d-none d-lg-block" src="~/Images/raisefist.png" alt="raised fist" />
+        </div>
+    </div>
+</div>

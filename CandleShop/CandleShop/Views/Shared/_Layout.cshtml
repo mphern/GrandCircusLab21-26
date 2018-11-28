@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css")
+</head>
+<body>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+ 
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js")
+    @Scripts.Render("https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
