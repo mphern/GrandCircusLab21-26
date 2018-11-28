@@ -49,6 +49,17 @@ textarea {
     height: auto !important;
 }
 
+#fist-raise {
+    width: 435px !important;
+    height: auto !important;
+}
+
+#high-five {
+    width: 215px !important;
+    height: auto !important;
+}
+
+
 #candles {
     width: 350px !important;
     height: auto !important;

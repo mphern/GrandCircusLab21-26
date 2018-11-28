@@ -13,5 +13,12 @@ namespace CandleShop.Controllers
         {
             return View();
         }
+
+        public ActionResult Welcome(string firstName, string state)
+        {
+            ViewBag.FirstName = firstName;
+            ViewBag.State = state;
+            return View();
+        }
     }
 }

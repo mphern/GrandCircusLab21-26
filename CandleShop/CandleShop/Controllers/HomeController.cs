@@ -27,10 +27,5 @@ namespace CandleShop.Controllers
             return View();
         }
 
-        public ActionResult Welcome(string firstName)
-        {
-            ViewBag.FirstName = firstName;
-            return View();
-        }
     }
 }
