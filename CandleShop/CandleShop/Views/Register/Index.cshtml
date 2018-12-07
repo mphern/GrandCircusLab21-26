@@ -13,30 +13,30 @@
                     <legend>Registration Form</legend>
                     <div class="form-group required">
                         <label class="control-label register-form-text">Email Address: </label>
-                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                        <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Enter Email" required>
                         <p class="form-text">We'll never share your email with anyone else.</p>
                     </div>
                     <div class="form-group required">
                         <label class="control-label register-form-text">First Name: </label>
-                        <input type="text" class="form-control" name="firstName" placeholder="Enter First Name" required>
+                        <input type="text" class="form-control" name="FirstName" placeholder="Enter First Name" required>
                     </div>
                     <div class="form-group required">
                         <label class="control-label register-form-text">Last Name: </label>
-                        <input type="text" class="form-control" name="lastName" placeholder="Enter Last Name" required>
+                        <input type="text" class="form-control" name="LastName" placeholder="Enter Last Name" required>
                     </div>
                     <div class="form-group">
                         <label class="register-form-text">Phone Number: </label>
-                        <input type="tel" pattern="[\(]\d{3}[\)]\d{3}[\-]\d{4}" class="form-control" name="phoneNumber" placeholder="Enter Phone Number">
+                        <input type="tel" pattern="[\(]\d{3}[\)]\d{3}[\-]\d{4}" class="form-control" name="PhoneNumber" placeholder="Enter Phone Number">
                         <p class="form-text">FORMAT: (###)###-####</p>
                     </div>
                     <div class="form-group required">
                         <label class="control-label register-form-text">Password: </label>
-                        <input type="password" class="form-control" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Password" required>
+                        <input type="password" class="form-control" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Password" required>
                         <p class="form-text">Password must be at least 8 characters and include an uppercase letter, lowercase letter, and a number.</p>
                     </div>
                     <div class="form-group required">
                         <label class="control-label register-form-text">State: </label><br />
-                        <select name="state" required>
+                        <select name="State" required>
                             <option value=""></option>
                             <option value="Alabama">Alabama</option>
                             <option value="Alabama">Alabama</option>
@@ -97,17 +97,18 @@
                     <div class="form-group required">
                         <label class="control-label register-form-text">Security Question: </label><br />
                     </div>
-                    <select name="question" required>
+                    <select name="Question" required>
                         <option value="">Pick a security question</option>
                         <option value="question 1">What was your first pet's name?</option>
                         <option value="question 2">What was the name of your elementary school?</option>
                         <option value="question 3">What was the model of your first car?</option>
                         <option value="question 4">What is your mother's maiden name?</option>
                     </select>
-                    <input type="text" class="form-control" name="answer" placeholder="Enter Answer" required>
+                    <input type="text" class="form-control" name="Answer" placeholder="Enter Answer" required>
                 </fieldset>
                 <br />
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg border border-dark mr-5">Submit</button>
+                <a type="button" href="/Home/Index" class="btn btn-primary btn-lg border border-dark">Home</a>
             </form>
         </div>
         <div class="col">

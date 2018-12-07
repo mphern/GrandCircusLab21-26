@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "EditProductList";
+}
+
+<h2 class="bro-text">List of Candles</h2>
+
+<table id="candle-table" class="table border-dark">
+
+    <tr>
+        <th>Candle Scent</th>
+        <th>Candle Price</th>
+        <th>Quantity</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var candle in ViewBag.ProductList)
+    {
+    <tr>
+        <td>@candle.Name</td>
+        <td id="price">$@candle.Price</td>
+        <td id="quantity">@candle.QuantityInStock</td>
+
+        <td><a href="~/Admin/EditProduct?ProductID=@candle.ProductID">Edit</a></td>
+        <td><a href="~/Admin/DeleteProduct?ProductID=@candle.ProductID">Delete</a></td>
+    </tr>
+    
+    }
+
+</table>

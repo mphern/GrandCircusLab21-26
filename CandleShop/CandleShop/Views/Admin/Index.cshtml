@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="bro-text">Admin Authentication</h2>
+
+
+<div class="input-group mb-3">
+    <input type="password" class="form-control" id="adminPass" placeholder="Enter Admin Password">
+    <div class="input-group-append">
+        <button class="btn btn-outline-dark" type="button" id="button-addon2" onclick="ValidAdminPass()">Submit</button>
+    </div>
+</div>
+
+<div id="edit-buttons">
+    <form action="/Admin/EditProductList">
+        <div class="text-center pt-2"><button type="submit" id="editProducts" class="btn btn-primary btn-lg border border-dark">Edit Products</button></div>
+    </form>
+
+    <form action="/Admin/EditUserList">
+        <div class="text-center pt-2"><button type="submit" id="editUsers" class="btn btn-primary btn-lg border border-dark">Edit Users</button></div>
+    </form>
+</div>
+

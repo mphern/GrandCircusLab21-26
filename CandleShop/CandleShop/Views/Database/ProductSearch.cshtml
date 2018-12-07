@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "ProductSearch";
+}
+
+<h2 class="bro-text">Search results</h2>
+
+<form action="/Database/ProductSearch" method="post">
+    <div id="search-box" class="input-group mb-3 text-right">
+        <input type="text" id="searchInput" class="form-control" name="search" placeholder="What are you looking for?">
+        <div class="input-group-append">
+            <button class="btn btn-outline-dark" type="submit" id="button-addon2">Search</button>
+        </div>
+    </div>
+</form>
+
+
+<h2 class="bro-text">List of Candles</h2>
+
+<table id="candle-table" class="table border-dark">
+
+    <tr>
+        <th>Candle Scent</th>
+        <th>Candle Price</th>
+        <th>Quantity</th>
+    </tr>
+
+    @foreach (var candle in ViewBag.ProductList)
+    {
+        if (candle.Name.ToUpper().Contains(ViewBag.Search.ToUpper()))
+        {
+        <tr>
+            <td>@candle.Name</td>
+            <td id="price">$@candle.Price</td>
+            <td id="quantity">@candle.QuantityInStock</td>
+        </tr>
+        }
+    }
+
+</table>
+
+<div>
+    <a type="button" href="/Home/Index" class="btn btn-primary btn-lg mr-5">Home</a>
+    <a type="button" href="/Database/Products" class="btn btn-primary btn-lg mr-5">See List of All Candles</a>
+    <a type="button" href="/Database/Users" class="btn btn-primary btn-lg">See List of Bros</a>
+</div>

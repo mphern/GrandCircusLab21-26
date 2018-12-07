@@ -30,7 +30,7 @@ textarea {
 	color: red;
 }
 
-#register {
+#register, #users-products {
     font-size: 2.25rem !important;
     border-radius: 1.0rem !important;
 }
@@ -47,6 +47,7 @@ textarea {
 #fist-bump {
     width: 350px !important; 
     height: auto !important;
+    margin-left: -85px;
 }
 
 #fist-raise {
@@ -68,4 +69,39 @@ textarea {
 
 .register-form-text {
     font-size: 1.5rem !important;
+}
+
+.bro-text {
+    font-family: 'Permanent Marker', cursive;
+}
+
+#home-buttons, #list-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#candle-table, #user-table {
+    font-size: 200% !important;
+}
+
+#search-box {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#price, #quantity {
+    padding-left: 35px !important;
+}
+
+#nav-bar {
+    background-color: darkgoldenrod !important;
+    font-size: 2rem !important;
+}
+
+#edit-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 325px !important;
 }

@@ -78,3 +78,7 @@ C:\Users\mhern\OneDrive - KNEX\Desktop\Grand Circus Labs\Grand Circus Lab 21-22\
 C:\Users\mhern\OneDrive - KNEX\Desktop\Grand Circus Labs\Grand Circus Lab 21-22\CandleShop\CandleShop\obj\Debug\CandleShop.csproj.CopyComplete
 C:\Users\mhern\OneDrive - KNEX\Desktop\Grand Circus Labs\Grand Circus Lab 21-22\CandleShop\CandleShop\obj\Debug\CandleShop.dll
 C:\Users\mhern\OneDrive - KNEX\Desktop\Grand Circus Labs\Grand Circus Lab 21-22\CandleShop\CandleShop\obj\Debug\CandleShop.pdb
+C:\Users\mhern\OneDrive - Knex\Desktop\Grand Circus Labs\Grand Circus Lab 21-22\CandleShop\CandleShop\bin\EntityFramework.dll
+C:\Users\mhern\OneDrive - Knex\Desktop\Grand Circus Labs\Grand Circus Lab 21-22\CandleShop\CandleShop\bin\EntityFramework.SqlServer.dll
+C:\Users\mhern\OneDrive - Knex\Desktop\Grand Circus Labs\Grand Circus Lab 21-22\CandleShop\CandleShop\bin\EntityFramework.xml
+C:\Users\mhern\OneDrive - Knex\Desktop\Grand Circus Labs\Grand Circus Lab 21-22\CandleShop\CandleShop\bin\EntityFramework.SqlServer.xml
