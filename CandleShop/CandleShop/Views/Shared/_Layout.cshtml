@@ -21,7 +21,7 @@
             </div>
 
         </div>
-        <div class="navbar-nav navbar-right">
+        @*<div class="navbar-nav navbar-right">
             @if (Request.IsAuthenticated)
             {
                 <p class="nav-item nav-link active navbar-right mr-5">Hello @User.Identity.Name! <strong class="ml-3"><a class="" href="/Account/LogOut">Sign Out</a></strong></p>
@@ -30,7 +30,9 @@
             {
             <a class="nav-item nav-link active navbar-right mr-5" href="/Account/Login">Already Registered? Sign In!</a>
             }
-        </div>
+        </div>*@
+        @Html.Partial("_Menu")
+
     </nav>
     <div class="container body-content">
         @RenderBody()

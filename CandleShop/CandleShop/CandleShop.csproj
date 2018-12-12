@@ -269,6 +269,7 @@
     <Content Include="Views\Admin\AddProduct.cshtml" />
     <Content Include="Views\Admin\EditDeleteUserList.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,29 @@
+﻿@helper GetButtonVisibility(string controller, string action = null)
+{
+    if ((string)ViewContext.RouteData.Values["controller"] == controller &&
+        (action == null || (string)ViewContext.RouteData.Values["action"] == action))
+    {
+        <text>hidden</text>
+    }
+    else
+    {
+        <text>visible</text>
+    }
+}
+
+<div class="navbar-nav navbar-right">
+    @if (Request.IsAuthenticated)
+    {
+        <p class="nav-item nav-link active navbar-right mr-5">Hello @User.Identity.Name! <strong class="ml-3"><a class="" href="/Account/LogOut">Sign Out</a></strong></p>
+    }
+    else
+    {
+        <div style="visibility: @GetButtonVisibility("Account")">
+            <p class="nav-item nav-link active navbar-right mr-5">Already registered?
+            <strong class="ml-3">
+            <a href="@Url.Action("Login", "Account")">Sign In!</a>
+            </strong>
+            </p>
+        </div>
+    }
+</div>
