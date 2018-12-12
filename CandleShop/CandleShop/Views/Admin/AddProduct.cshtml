@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<h2>Add New Product</h2>
+
+<form action="/Admin/SaveNewProduct" method="post">
+
+    <input type="hidden" name="ProductID" />
+    <input type="text" name="Name" required placeholder="Candle Scent Name" />
+    <input type="text" name="Price" pattern="\d+\.\d{2}" required placeholder="Candle Price" />
+    <input type="text" name="QuantityInStock" pattern="\d+" required placeholder="Quantity" />
+
+    <input type="submit" class="btn-primary" />
+
+</form>

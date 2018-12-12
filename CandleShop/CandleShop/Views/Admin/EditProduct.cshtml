@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "EditProduct";
+}
+
+@model CandleShop.Models.Product
+
+<form id="edit-product" action="~/Admin/SaveProductChanges" method="post">
+    <input type="hidden" name="ProductID" value="@Model.ProductID" />
+    <label>Name:</label>
+    <input class="mx-2" type="text" name="Name" value="@Model.Name" />
+    <label>Price:</label>
+    <input class="mx-2" type="text" pattern="\d+\.\d{2}" name="Price" value="@Model.Price" />
+    <label>Quantity:</label>
+    <input class="mx-2" type="text" pattern="\d+" name="QuantityInStock" value="@Model.QuantityInStock" />
+    <input type="submit" class="btn-primary" />
+
+</form>

@@ -1,0 +1,16 @@
+﻿@model CandleShop.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2 class="bro-text">Bro Login</h2>
+<br />
+<form action="~/Account/Login" method="post">
+    @Html.ValidationSummary()
+    User Name: <input type="text" name="UserName" value="" /><br />
+    <br />
+    Password: <input type="password" name="Password" /><br />
+    <br />
+    <input type="submit" class="btn-primary" />
+</form>

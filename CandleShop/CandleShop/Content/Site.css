@@ -81,7 +81,7 @@ textarea {
     justify-content: space-around;
 }
 
-#candle-table, #user-table {
+#candle-table, #user-table, #edit-product {
     font-size: 200% !important;
 }
 
