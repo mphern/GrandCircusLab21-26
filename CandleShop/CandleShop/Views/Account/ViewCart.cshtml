@@ -1,0 +1,55 @@
+﻿@using CandleShop.Models;
+
+@{
+    ViewBag.Title = "ViewCart";
+}
+
+<h2 class="bro-text">Your Cart</h2>
+
+@{  
+    double total = 0;
+    List<string> productsSeen = new List<string>();
+ }
+
+<table id="candle-table" class="table border-dark">
+
+    <tr>
+        <th>Candle Scent</th>
+        <th>Candle Price</th>
+        <th></th>
+    </tr>
+
+    @foreach (var candle in ViewBag.UserItems)
+    {
+        if (!productsSeen.Contains(candle.Name))
+        {
+            int productInCart = 0;
+            double price = 0;
+            productsSeen.Add(candle.Name);
+            foreach (var candle2 in ViewBag.UserItems)
+            {
+                if (candle2.Name == candle.Name)
+                {
+                    productInCart += 1;
+                }
+            }
+            price = (double)candle.Price * productInCart;
+            total += price;
+    <tr>
+        <td>@candle.Name X @productInCart</td>
+        <td id="price">$@price</td>
+
+<td><a href="~/Account/RemoveProduct?ProductID=@candle.ProductID">Remove</a></td>
+
+</tr>
+        }
+    }
+    <tr>
+        <td><strong style="font-size:large">Total: </strong></td>
+        <td id="total"><strong style="font-size:large">$@total </strong></td>
+        <td></td>
+    </tr>
+    
+</table>
+
+<div class="text-center pt-2 mr-5"><a href="/Account/ViewProducts" id="view-cart" class="btn btn-primary btn-lg border border-dark">Add More to Cart &raquo;</a></div>

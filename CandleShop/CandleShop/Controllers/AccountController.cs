@@ -9,13 +9,13 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
 using Microsoft.Owin.Security;
-using CandleShop.Data;
+
 
 namespace CandleShop.Controllers
 {
     public class AccountController : Controller
     {
-        public UserManager<User> UserManager => HttpContext.GetOwinContext().Get<UserManager<User>>();
+        public UserManager<IdentityUser> UserManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
 
         // GET: Register
         public ActionResult Register()
@@ -28,25 +28,31 @@ namespace CandleShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User()
+                IdentityUser user = new IdentityUser()
                 {
                     UserName = registerUser.UserName,
                     Email = registerUser.Email,
                     PhoneNumber = registerUser.PhoneNumber,
-                    UserID = registerUser.UserID,
-                    FirstName = registerUser.FirstName,
-                    LastName = registerUser.LastName,
-                    Password = registerUser.Password,
-                    State = registerUser.State,
-                    Question = registerUser.Question,
-                    Answer = registerUser.Answer
                 };
 
                 var identityResult = await UserManager.CreateAsync(user, registerUser.Password);
 
                 if (identityResult.Succeeded)
                 {
-                    return RedirectToAction("Welcome", user);
+                    User newUser = new User()
+                    {
+                        UserName = registerUser.UserName,
+                        FirstName = registerUser.FirstName,
+                        LastName = registerUser.LastName,
+                        Email = registerUser.Email,
+                        Password = registerUser.Password,
+                        State = registerUser.State,
+                        Question = registerUser.Question,
+                        Answer = registerUser.Answer
+                    };
+
+
+                    return RedirectToAction("Welcome", newUser);
                 }
 
                 ModelState.AddModelError("", identityResult.Errors.FirstOrDefault());
@@ -58,16 +64,12 @@ namespace CandleShop.Controllers
 
         public ActionResult Welcome(User user)
         {
-            const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CandleShop;Integrated Security=True;Connect Timeout=30;Encrypt=False;
-                                              TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
-            AppUserDbContext ORM = new AppUserDbContext(connectionString);
-            CandleShopEntities ORM2 = new CandleShopEntities();
+            CandleShopEntities ORM = new CandleShopEntities();
             List<User> userEmails = ORM.Users.Where(u => u.Email.Equals(user.Email)).ToList();
-            if(userEmails.Count == 1)
+            if(userEmails.Count == 0)
             {
-                ORM2.Users.Add(user);
-                ORM2.SaveChanges();
+                ORM.Users.Add(user);
+                ORM.SaveChanges();
                 ViewBag.DuplicateEmail = false;
             }
             else
@@ -88,10 +90,10 @@ namespace CandleShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userManager = HttpContext.GetOwinContext().Get<UserManager<User>>();
+                var userManager = HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
                 var authManager = HttpContext.GetOwinContext().Authentication;
 
-                User user = userManager.Find(login.UserName, login.Password);
+                IdentityUser user = userManager.Find(login.UserName, login.Password);
                 if (user != null)
                 {
                     
@@ -113,5 +115,76 @@ namespace CandleShop.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult GetEmail()
+        {
+
+            return View();
+        }
+
+
+
+        public ActionResult ChangePass(string email)
+        {
+            const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CandleShop;Integrated Security=True;Connect Timeout=30;Encrypt=False;
+                                              TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            IdentityDbContext<IdentityUser> ORM = new IdentityDbContext<IdentityUser>(connectionString);
+            ViewBag.Email = email;
+            ViewBag.UserList = ORM.Users.ToList();
+
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult ViewProducts()
+        {
+            CandleShopEntities ORM = new CandleShopEntities();
+            ViewBag.ProductList = ORM.Products.ToList();
+
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult AddProduct(Product selectedProduct)
+        {
+            CandleShopEntities ORM = new CandleShopEntities();
+
+            Product productToAdd = ORM.Products.Find(selectedProduct.ProductID);
+
+            productToAdd.UserName = User.Identity.Name;
+
+
+            ORM.Products.Add(productToAdd);
+            ORM.SaveChanges();
+
+            ViewBag.Candle = productToAdd.Name;
+
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult ViewCart()
+        {
+            string userName = User.Identity.Name;
+            CandleShopEntities ORM = new CandleShopEntities();
+
+            ViewBag.UserItems = ORM.Products.Where(x => x.UserName == userName);
+
+            return View();
+        }
+
+        public ActionResult RemoveProduct(int ProductID)
+        {
+        
+            CandleShopEntities ORM = new CandleShopEntities();
+
+            Product product = ORM.Products.Find(ProductID);
+            ORM.Products.Remove(product);
+            ORM.SaveChanges();
+
+            return RedirectToAction("ViewCart");
+        }
+        
     }
 }

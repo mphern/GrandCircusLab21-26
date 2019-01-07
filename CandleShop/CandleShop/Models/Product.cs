@@ -14,9 +14,10 @@ namespace CandleShop.Models
     
     public partial class Product
     {
-        public int ProductID { get; set; }
+        public string UserName { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int QuantityInStock { get; set; }
+        public int ProductID { get; set; }
     }
 }

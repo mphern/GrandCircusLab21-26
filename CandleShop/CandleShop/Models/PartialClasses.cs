@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CandleShop.Models
 {
-    public partial class User : IdentityUser
-    {
-    }
+    //public partial class User : IdentityUser
+    //{
+    //}
 }

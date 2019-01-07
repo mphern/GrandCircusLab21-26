@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\mhern\OneDrive - Knex\Desktop\Grand Circus Labs\Grand Circus Lab 21-22\CandleShop\CandleShop\Models\CandleDB.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\mhern\OneDrive - KNEX\Desktop\Grand Circus Labs\Grand Circus Lab 21-22\CandleShop\CandleShop\Models\CandleDB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

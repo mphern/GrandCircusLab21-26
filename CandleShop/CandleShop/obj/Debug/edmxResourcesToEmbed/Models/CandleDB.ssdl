@@ -4,22 +4,25 @@
     <Key>
       <PropertyRef Name="ProductID" />
     </Key>
-    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="75" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Price" Type="decimal" Precision="13" Scale="2" Nullable="false" />
     <Property Name="QuantityInStock" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
-      <PropertyRef Name="UserID" />
+      <PropertyRef Name="Email" />
     </Key>
     <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="State" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="Question" Type="nvarchar" MaxLength="125" Nullable="false" />
     <Property Name="Answer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="75" />
   </EntityType>
   <EntityContainer Name="CandleShopModelStoreContainer">
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />

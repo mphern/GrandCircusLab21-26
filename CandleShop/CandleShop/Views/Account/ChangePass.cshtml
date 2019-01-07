@@ -1,0 +1,9 @@
+﻿
+@foreach (var user in ViewBag.UserList)
+{
+    if (user.Email.ToUpper() == ViewBag.Email.ToUpper())
+    {
+        <text>Your user name is </text>@user.UserName <br />
+        <text>Your Password is </text>@user.Password
+    }
+}

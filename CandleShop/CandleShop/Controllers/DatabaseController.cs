@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CandleShop.Data;
 using CandleShop.Models;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace CandleShop.Controllers
 {
     public class DatabaseController : Controller
     {
+        public UserManager<IdentityUser> UserManager => HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>();
         // GET: Database
         [Authorize]
         public ActionResult Index()
@@ -20,10 +22,8 @@ namespace CandleShop.Controllers
 
         public ActionResult Users()
         {
-            const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CandleShop;Integrated Security=True;Connect Timeout=30;Encrypt=False;
-                                              TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-            IdentityDbContext<User> ORM = new IdentityDbContext<User>(connectionString);
+            CandleShopEntities ORM = new CandleShopEntities();
             ViewBag.UserList = ORM.Users.ToList();
 
             return View();
@@ -42,6 +42,8 @@ namespace CandleShop.Controllers
             CandleShopEntities ORM = new CandleShopEntities();
             ViewBag.ProductList = ORM.Products.ToList();
             ViewBag.Search = search;
+
+            
 
             return View();
         }

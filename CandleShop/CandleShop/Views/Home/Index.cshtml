@@ -24,3 +24,13 @@
     </div>
 </div>
 
+@if (Request.IsAuthenticated)
+{
+<div class="cart-buttons">
+
+    <div class="text-center pt-1 mr-5"><a href="/Account/ViewProducts" id="add-cart" class="btn btn-primary btn-lg border border-dark">Add Candles to your Cart &raquo;</a></div>
+    <div class="text-center pt-1"><a href="/Account/ViewCart" id="view-cart" class="btn btn-primary btn-lg border border-dark">View Cart &raquo;</a></div>
+
+</div>
+    
+}

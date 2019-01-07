@@ -24,11 +24,14 @@
 
     @foreach (var candle in ViewBag.ProductList)
     {
-        <tr>
-            <td>@candle.Name</td>
-            <td id="price">$@candle.Price</td>
-            <td id="quantity">@candle.QuantityInStock</td>
-        </tr>
+        if (candle.UserName == null)
+        {
+            <tr>
+                <td>@candle.Name</td>
+                <td id="price">$@candle.Price</td>
+                <td id="quantity">@candle.QuantityInStock</td>
+            </tr>
+        }
     }
 
 </table>

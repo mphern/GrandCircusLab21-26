@@ -165,7 +165,6 @@
     <Compile Include="Controllers\DatabaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Data\AppUserDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -270,6 +269,11 @@
     <Content Include="Views\Admin\EditDeleteUserList.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Account\ChangePass.cshtml" />
+    <Content Include="Views\Account\GetEmail.cshtml" />
+    <Content Include="Views\Account\ViewProducts.cshtml" />
+    <Content Include="Views\Account\AddProduct.cshtml" />
+    <Content Include="Views\Account\ViewCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

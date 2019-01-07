@@ -6,7 +6,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
 using CandleShop.Models;
-using CandleShop.Data;
 using Microsoft.Owin.Security.Cookies;
 
 
@@ -18,13 +17,12 @@ namespace CandleShop
     {
         public void Configuration(IAppBuilder app)
         {
-            const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CandleShop;Integrated Security=True;Connect Timeout=30;Encrypt=False;
-                                              TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CandleShopIdentity;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-            app.CreatePerOwinContext(() => new AppUserDbContext(connectionString));
+            app.CreatePerOwinContext(() => new IdentityDbContext(connectionString));
 
 
-            app.CreatePerOwinContext<UserStore<User>>((opt, cont) => new UserStore<User>(cont.Get<AppUserDbContext>()));            app.CreatePerOwinContext<UserManager<User>>((opt, cont) => new UserManager<User>(cont.Get<UserStore<User>>()));
+            app.CreatePerOwinContext<UserStore<IdentityUser>>((opt, cont) => new UserStore<IdentityUser>(cont.Get<IdentityDbContext>()));            app.CreatePerOwinContext<UserManager<IdentityUser>>((opt, cont) => new UserManager<IdentityUser>(cont.Get<UserStore<IdentityUser>>()));
 
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions

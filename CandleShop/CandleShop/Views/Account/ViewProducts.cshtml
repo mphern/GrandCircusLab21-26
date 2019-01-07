@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<h2 class="bro-text">List of Candles</h2>
+
+<table id="candle-table" class="table border-dark">
+
+    <tr>
+        <th>Candle Scent</th>
+        <th>Candle Price</th>
+        <th>Quantity</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var candle in ViewBag.ProductList)
+    {
+        if (candle.UserName == null)
+        {    
+        <tr>
+            <td>@candle.Name</td>
+            <td id="price">$@candle.Price</td>
+            <td id="quantity">@candle.QuantityInStock</td>
+
+            <td><a href="~/Account/AddProduct?ProductID=@candle.ProductID">Add</a></td>
+        </tr>        
+        }
+    }
+</table>
